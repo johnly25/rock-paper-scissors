@@ -49,18 +49,27 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-
-
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-
-
 function game() {
-    for () {
+    let score = 0;
+    for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("What's your choice?");
-        playRound(playerSelection,getComputerChoice());
-    }
+        let round = playRound(playerSelection,getComputerChoice());
 
- 
+        if(round.includes("win")) {
+            score++;
+        } else if (round.includes("lose")) {
+            console.log("lose here");
+            score--;
+        }
+        console.log(round);
+    }
+    if(score > 0) {
+        console.log("YOU ARE WINNER");
+    } else if (score < 0) {
+        console.log("YOU ARE LOSER");
+    } else {
+        console.log("It's a draw");
+    }
 }
 
+game();
